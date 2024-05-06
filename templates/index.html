@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column; /* Arrange elements vertically */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Create account</a></li>
+        </ul>
+      </nav>
+      {% if current_user.is_authenticated %}
+      <h1>You are logged in {{ current_user.username }}</h1>
+      <a href="/logout">Logout</a>
+      {% else %}
+      <h1>You are not logged in</h1>
+      {% endif %}
+    <div class="center">
+        <form action="/upload" enctype="multipart/form-data" method="POST"> 
+            <label for="dataset">Dataset Name:</label>
+            <input type="text" id="dataset" name="dataset" /> <br><br>
+
+            <label for="subdirectory1">Subdirectory 1 Name:</label>
+            <input type="text" id="subdirectory1" name="subdirectory1" /> <br>
+            <input type="file" name="pic_set_1" multiple/> <br><br>
+
+            <label for="subdirectory2">Subdirectory 2 Name:</label>
+            <input type="text" id="subdirectory2" name="subdirectory2" /> <br>
+            <input type="file" name="pic_set_2" multiple/> <br><br>
+
+            <input type="submit" value="Upload Files"/>
+        </form>
+    </div>
+</body>
+</html>
