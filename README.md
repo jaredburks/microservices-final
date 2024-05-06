@@ -9,7 +9,7 @@ NOTE: This app is intended for images to be uploaded but there is currently not 
 
 Installation:
 This app's dependencies are listed in the requirements.txt.
-Locust is not necessary and is only used for load testing.
+Locust is not necessary and is only used for load testing. Currently only '/', '/upload', and 'login' endpoints can be tested.
 After cloning this repo, run the app by using the flask run command.
 This app was developed using WSL. 
 
